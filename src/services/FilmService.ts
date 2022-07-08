@@ -1,22 +1,22 @@
-import { FilmInput, FilmOutput } from "../../database/models/FilmModel";
-import * as service from "../../services/FilmService"
+import { FilmInput, FilmOutput } from "../database/models/FilmModel";
+import * as repository from "../database/repositories/FilmRepository"
 
 export const getAll = async (): Promise<FilmOutput[]> => {
-    return await service.getAll();
+    return await repository.getAll();
 }
 
 export const getById = async (id: number): Promise<FilmOutput> => {
-    return await service.getById(id)
+    return await repository.getById(id)
 }
 
 export const create = async (payload: FilmInput): Promise<FilmOutput> => {
-    return service.create(payload)
+    return repository.create(payload)
 }
 
 export const updateById = async (id: number, payload: FilmInput): Promise<FilmOutput> => {
-    return await service.updateById(id, payload)
+    return await repository.updateById(id, payload)
 }
 
 export const deleteByID = async (id: number): Promise<void> => {
-    service.deleteByID(id)
+    repository.deleteByID(id)
 };
